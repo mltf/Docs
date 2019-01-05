@@ -4,7 +4,7 @@ author: guardrex
 description: Learn about URL rewriting and redirecting with URL Rewriting Middleware in ASP.NET Core applications.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/19/2018
+ms.date: 12/18/2018
 uid: fundamentals/url-rewriting
 ---
 # URL Rewriting Middleware in ASP.NET Core
@@ -72,7 +72,7 @@ Use URL Rewriting Middleware when you're unable to use the following approaches:
 * [Apache mod_rewrite module on Apache Server](https://httpd.apache.org/docs/2.4/rewrite/)
 * [URL rewriting on Nginx](https://www.nginx.com/blog/creating-nginx-rewrite-rules/)
 
-Also, use the middleware when the app is hosted on [HTTP.sys server](xref:fundamentals/servers/httpsys) (formerly called [WebListener](xref:fundamentals/servers/weblistener)).
+Also, use the middleware when the app is hosted on [HTTP.sys server](xref:fundamentals/servers/httpsys) (formerly called WebListener).
 
 The main reasons to use the server-based URL rewriting technologies in IIS, Apache, and Nginx are:
 
@@ -204,7 +204,7 @@ Following the `^rewrite-rule/` portion of the expression, there are two capture 
 There's no round trip to the server to obtain the resource. If the resource exists, it's fetched and returned to the client with a *200 - OK* status code. Because the client isn't redirected, the URL in the browser's address bar doesn't change. Clients can't detect that a URL rewrite operation occurred on the server.
 
 > [!NOTE]
-> Use `skipRemainingRules: true` whenever possible because matching rules is computationally expensive and reduces app response time. For the fastest app response:
+> Use `skipRemainingRules: true` whenever possible because matching rules is computationally expensive and increases app response time. For the fastest app response:
 >
 > * Order rewrite rules from the most frequently matched rule to the least frequently matched rule.
 > * Skip the processing of the remaining rules when a match occurs and no additional rule processing is required.

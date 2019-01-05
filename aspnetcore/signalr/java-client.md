@@ -5,7 +5,7 @@ description: Learn how to use the ASP.NET Core SignalR Java client.
 monikerRange: '>= aspnetcore-2.2'
 ms.author: mimengis
 ms.custom: mvc
-ms.date: 11/06/2018
+ms.date: 11/07/2018
 uid: signalr/java-client
 ---
 # ASP.NET Core SignalR Java client
@@ -20,13 +20,12 @@ The sample Java console app referenced in this article uses the SignalR Java cli
 
 ## Install the SignalR Java client package
 
-The *signalr-1.0.0-preview3-35501* JAR file allows clients to connect to SignalR hubs. To find the latest JAR file version number, see the [Maven search results](https://search.maven.org/search?q=g:com.microsoft.signalr%20AND%20a:signalr).
+The *signalr-1.0.0* JAR file allows clients to connect to SignalR hubs. To find the latest JAR file version number, see the [Maven search results](https://search.maven.org/search?q=g:com.microsoft.signalr%20AND%20a:signalr).
 
 If using Gradle, add the following line to the `dependencies` section of your *build.gradle* file:
 
 ```gradle
-implementation 'com.microsoft.signalr:signalr:1.0.0-preview3-35501'
-implementation 'io.reactivex.rxjava2:rxjava:2.2.2'
+implementation 'com.microsoft.signalr:signalr:1.0.0'
 ```
 
 If using Maven, add the following lines inside the `<dependencies>` element of your *pom.xml* file:
@@ -69,6 +68,12 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 
 This can safely be ignored.
 
+## Android development notes
+
+With regards to Android SDK compatibility for the SignalR client features, consider the following items when specifying your target Android SDK version:
+
+* The SignalR Java Client will run on Android API Level 16 and later.
+* Connecting through the Azure SignalR Service will require Android API Level 20 and later because the [Azure SignalR Service](/azure/azure-signalr/signalr-overview) requires TLS 1.2 and doesn't support SHA-1-based cipher suites. Android [added support for SHA-256 (and above) cipher suites](https://developer.android.com/reference/javax/net/ssl/SSLSocket) in API Level 20.
 
 ## Configure bearer token authentication
 
@@ -83,8 +88,6 @@ HubConnection hubConnection = HubConnectionBuilder.create("YOUR HUB URL HERE")
 ```
 
 ## Known limitations
-
-This is a preview release of the Java client. Some features aren't supported:
 
 * Only the JSON protocol is supported.
 * Only the WebSockets transport is supported.

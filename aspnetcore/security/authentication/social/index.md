@@ -19,8 +19,6 @@ This tutorial demonstrates how to build an ASP.NET Core 2.x app that enables use
 
 Enabling users to sign in with their existing credentials is convenient for the users and shifts many of the complexities of managing the sign-in process onto a third party. For examples of how social logins can drive traffic and customer conversions, see case studies by [Facebook](https://www.facebook.com/unsupportedbrowser) and [Twitter](https://dev.twitter.com/resources/case-studies).
 
-Note: Packages presented here abstract a great deal of complexity of the OAuth authentication flow, but understanding the details may become necessary when troubleshooting. Many resources are available; for example, see [Introduction to OAuth 2](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2) or [Understanding OAuth 2](http://www.bubblecode.net/2016/01/22/understanding-oauth2/). Some issues can be resolved by looking at the [ASP.NET Core source code for the provider packages](https://github.com/aspnet/Security/tree/master/src).
-
 ## Create a New ASP.NET Core Project
 
 * In Visual Studio 2017, create a new project from the Start Page, or via **File** > **New** > **Project**.
@@ -42,11 +40,11 @@ Note: This tutorial applies to ASP.NET Core 2.0 SDK version which can be selecte
 * Enter the email and password for the new account, and then select **Register**.
 * Follow the instructions to apply migrations.
 
-## Require SSL
+## Require HTTPS
 
-OAuth 2.0 requires the use of SSL for authentication over the HTTPS protocol.
+OAuth 2.0 requires the use of SSL/TLS for authentication over the HTTPS protocol.
 
-Projects created using the **Web Application** or **Web API** project templates with ASP.NET Core 2.1 or later are automatically configured to enable SSL. The app launches with a secure default endpoint if the **Individual User Accounts** option is selected in the **Change Authentication dialog** of the project wizard.
+Projects created using the **Web Application** or **Web API** project templates with ASP.NET Core 2.1 or later are automatically configured to enable HTTPS. The app launches with a secure default endpoint if the **Individual User Accounts** option is selected in the **Change Authentication dialog** of the project wizard.
 
 For more information, see <xref:security/enforcing-ssl>.
 
